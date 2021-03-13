@@ -1,0 +1,66 @@
+<div class="container">
+    <div id="banner" class="page-header">
+        <h2 class="text-center">Update Course</h2>
+        <div class="container-md">
+            <div class="jumbotron">
+                <form class="form-horizontal" action="" method="post" role="form">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input [(ngModel)]="newCourse.title" class="form-control" type="text" name="title" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="subtitle">Sub title</label>
+                        <input [(ngModel)]="newCourse.subtitle" class="form-control" type="text" name="subtitle" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="bannerImage">Banner Image Url</label>
+                        <input [(ngModel)]="newCourse.bannerImage" class="form-control" type="link" name="bannerImage" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input [(ngModel)]="newCourse.author" class="form-control" type="text" name="author" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input [(ngModel)]="newCourse.category" class="form-control" type="text" name="category" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input [(ngModel)]="newCourse.price" class="form-control" type="number" name="price" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <input [(ngModel)]="newCourse.rating" class="form-control" type="number" name="rating" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="createdOn">Date of Creation</label>
+                        <input [(ngModel)]="newCourse.createdOn" ng-bind="date | date: yyyy-mm-dd" class="form-control" type="date" name="createdOn" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input [(ngModel)]="newCourse.description" class="form-control" type="text" name="description" required="required" />
+                    </div>
+                    
+
+                     <!-- <div class="form-group">
+                        <label for="content">Content</label>
+                        <input [(ngModel)]="newCourse.content" class="form-control" type="text" name="content" required="required" />
+                    </div>
+                   <div class="form-group">
+                        <label for="sub1">Subject</label>
+                        <input [(ngModel)]="newCourse.sub1" class="form-control" type="text" name="sub1" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="sub2">Subject</label>
+                        <input [(ngModel)]="newCourse.sub2" class="form-control" type="text" name="sub2" required="required" />
+                    </div>
+                    <div class="form-group">
+                        <label for="sub3">Subject</label>
+                        <input [(ngModel)]="newCourse.sub3" class="form-control" type="text" name="sub3" required="required" />
+                    </div> -->
+                    <div class="form-group"><button type="button" class="btn btn-primary pull-right" (click)="updateCourse(newCourse)">Submit</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

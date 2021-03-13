@@ -1,0 +1,70 @@
+<div class="container">
+    <div id="banner" class="page-header">
+        <div class="row bg-white pt-4">
+            <div class="col-md-9">
+                <img style="max-height: 300px;max-width: 100%;" src="{{currentCourse.bannerImage}}"
+                    alt='Generic placeholder image' />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9">
+                <h3>Course Name : {{currentCourse.title}}</h3>
+                <h4>Subtitle: {{currentCourse.subtitle}}</h4>
+                <h4>Author: {{currentCourse.author}}</h4>
+                <h4>Price: CAD ${{currentCourse.price}}</h4>
+                <h5>
+                    Rating:
+                    <span *ngFor='let index of counter(currentCourse.rating);'>
+                        <i class="fa fa-star"></i>
+                    </span>
+                    <span *ngFor='let index of counter(5- currentCourse.rating);'>
+                        <i class="fa fa-star-o"></i>
+                    </span>
+                </h5>
+                <h5>Category: {{currentCourse.category}}</h5>
+                <button class="btn btn-danger">Wishlist <i class="fa fa-heart-o"></i></button> &nbsp;
+                <button class="btn btn-success">Share <i class="fa fa-share-alt"></i></button>
+                <br/><br/>
+                <div class="jumbotron">
+                    <h3>What you will learn: </h3>
+                    <ul class="list-unstyled">
+                        <span *ngFor='let index of (currentCourseDesc);'>
+                            <li><i class="fa fa-check"></i> {{index}}</li>
+                        </span>
+                    </ul>
+                </div>
+            </div>
+            
+           
+                <div class="col-md-9">
+                    <h3>Course Content</h3>
+                    <div class="accordion" id="accordionExample">
+                        <span *ngFor='let content of (currentCourse.content);let i = index'>
+                            <div class="card">
+                                <div class="card-header" [attr.id]="'heading' + i">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                            [attr.data-target]="'#collapse' + i" aria-expanded="false"
+                                            [attr.aria-controls]="'collapse' + i">
+                                            {{content.mainTitle}}
+                                        </button>
+                                    </h2>
+                                </div>
+
+                                <div [attr.id]="'collapse' + i" class="collapse" [ngClass]="i == 0 ? 'show' : ''" [attr.aria-labelledby]="'heading' + i"
+                                    data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <ul>
+                                            <li>{{content.sub1}}</li>
+                                            <li>{{content.sub2}}</li>
+                                            <li>{{content.sub3}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+<div id="banner" class="page-header">
+    <div class="row">
+        <div class="col-lg-9">
+            <h2 class="text-center">List of Courses</h2>
+            <h6 class="text-center">Best place to start your development journey.</h6>
+        </div>
+        <div class="col-md-3 ">
+            <a href="new" class="btn btn-primary float-right">Add New</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <a routerLink="/courses/{{course._id}}" class="text-decoration-none" *ngFor="let course of courses;"> 
+            <div class="card">
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img class="img-fluid" src="{{course.bannerImage}}" alt='Generic placeholder image' width=200 height=200 />
+                        </div>
+                        <div class="col-md-7">
+                            <h4 class="card-title"><a routerLink="/courses/{{course._id}}">{{course.title}}</a></h4>
+                            <h5 class="card-subtitle">{{course.subtitle}}</h5>
+                            <span *ngFor='let index of counter(course.rating);'>
+                                <i class="fa fa-star" ></i>
+                            </span>
+                            <span *ngFor='let index of counter(5- course.rating);'>
+                                <i class="fa fa-star-o" ></i>
+                            </span>
+                            <h6>Released On {{convertDate(course.createdOn)}}</h6>
+                            <h6>price: ${{course.price}}</h6> 
+                        </div>
+                        <div class="col-md-1">
+                            <a routerLink="/update/{{course._id}}" class="btn btn-warning">Update</a>
+                            <br/><br/>
+                            <button type="button" (click)="deleteCourse(course._id)" class="btn btn-danger">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
+</div>
